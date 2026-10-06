@@ -1,6 +1,6 @@
 module clockAndResetControl#(
     parameter WAIT_CYCLES_AFTER_RESET = 500000,
-    parameter WAIT_CYCLES_AFTER_PWDN = 1000
+    parameter WAIT_CYCLES_AFTER_PWDN = 50000
 )(
     input clk_50MHz,
     input reset_n,
@@ -21,7 +21,6 @@ module clockAndResetControl#(
     reg [rst_wt_cnt_width-1:0] rst_wait_counter;
     reg [pwdn_wt_cnt_width-1:0] pwdn_wait_counter;
 
-
     cam_pll pll1(clk_50MHz, xclk, lock);
 
     always @(posedge clk_50MHz)
@@ -34,7 +33,7 @@ module clockAndResetControl#(
             lock_meta <= 1'b0;
             lock_sync <= 1'b0;
         end
-        
+
         if (reset_n == 1'b0 || lock_sync == 1'b0)
         begin
             cam_reset_n <= 1'b0;
