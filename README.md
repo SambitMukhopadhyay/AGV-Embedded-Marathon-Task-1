@@ -753,7 +753,6 @@ Problems met during development and how each was resolved:
 
 ## 8. Known limitations and future work
 
-- The sequencer table beyond the soft reset holds placeholder values until the final register list is entered, and the post-reset wait and `TOTAL_ENTRIES` must be updated with it.
 - The SCCB master supports writes only.
 - At the end of each ACK slot (state S6), SIOC falls and SIOD is driven again on the same clock edge. This is correct in simulation, but a one-tick guard band would add margin on real hardware.
 - The SCCB master's stop marker relies on the last (placeholder) bit being 0, so SIOD is already low when SIOC rises.
