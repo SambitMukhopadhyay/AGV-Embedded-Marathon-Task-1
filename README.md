@@ -1,7 +1,6 @@
 # AGV-Embedded-Marathon-Task-1
-# Embedded Marathon A — OV7670 Camera Input Path
 
-RTL and testbenches for the **input half** of the camera-to-VGA pipeline on the DE0-Nano (Cyclone IV E): configuring the OV7670 over SCCB and capturing its pixel stream. All modules are synchronous Verilog with active-low synchronous resets.
+RTL and testbenches for the **entire** camera-to-VGA pipeline on the DE0-Nano (Cyclone IV E): configuring the OV7670 over SCCB, capturing its pixel stream, storing the captured pixels in a buffer, and displaying them on a VGA monitor. All modules are synchronous Verilog with active-low synchronous resets.
 
 This document covers:
 
