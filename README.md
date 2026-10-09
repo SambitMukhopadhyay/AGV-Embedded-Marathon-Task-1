@@ -644,8 +644,8 @@ The outside of the design. It contains no logic of its own: it holds the input t
 
 | Resource | Used |
 |---|---|
-| Logic elements | 397 / 22,320 |
-| Registers | 189 |
+| Logic elements | 704 / 22,320 |
+| Registers | 215 |
 | Pins | 36 / 154 |
 | Memory bits | 307,200 / 608,256 |
 | PLLs | 1 / 4 (two instances merged) |
