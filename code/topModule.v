@@ -16,7 +16,8 @@ module topModule(
 );
 
     wire pixel_valid, clk_pix;
-    wire [15:0] pixel, rd_data;
+    wire [15:0] pixel;
+    wire [7:0] rd_data;
     wire [9:0] pixel_no, x, y;
     wire [8:0] line_no;
 
