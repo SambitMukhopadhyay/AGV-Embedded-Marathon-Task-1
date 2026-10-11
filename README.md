@@ -1,7 +1,6 @@
 # AGV-Embedded-Marathon-Task-1
-# Embedded Marathon A — OV7670 Camera Input Path
 
-RTL and testbenches for the **input half** of the camera-to-VGA pipeline on the DE0-Nano (Cyclone IV E): configuring the OV7670 over SCCB and capturing its pixel stream. All modules are synchronous Verilog with active-low synchronous resets.
+RTL and testbenches for the **entire** camera-to-VGA pipeline on the DE0-Nano (Cyclone IV E): configuring the OV7670 over SCCB, capturing its pixel stream, storing the captured pixels in a buffer, and displaying them on a VGA monitor. All modules are synchronous Verilog with active-low synchronous resets.
 
 This document covers:
 
@@ -645,8 +644,8 @@ The outside of the design. It contains no logic of its own: it holds the input t
 
 | Resource | Used |
 |---|---|
-| Logic elements | 397 / 22,320 |
-| Registers | 189 |
+| Logic elements | 704 / 22,320 |
+| Registers | 215 |
 | Pins | 36 / 154 |
 | Memory bits | 307,200 / 608,256 |
 | PLLs | 1 / 4 (two instances merged) |
@@ -754,7 +753,6 @@ Problems met during development and how each was resolved:
 
 ## 8. Known limitations and future work
 
-- The sequencer table beyond the soft reset holds placeholder values until the final register list is entered, and the post-reset wait and `TOTAL_ENTRIES` must be updated with it.
 - The SCCB master supports writes only.
 - At the end of each ACK slot (state S6), SIOC falls and SIOD is driven again on the same clock edge. This is correct in simulation, but a one-tick guard band would add margin on real hardware.
 - The SCCB master's stop marker relies on the last (placeholder) bit being 0, so SIOD is already low when SIOC rises.
